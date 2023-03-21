@@ -36,6 +36,16 @@ const router = createRouter({
         showHead: false
       },
       component: () => import('../views/asyncView.vue')
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      meta: {
+        title: "监听测试",
+        keepAlive: true,
+        index: 3,
+      },
+      component: () => import('../views/watchView.vue')
     }
   ]
 })
