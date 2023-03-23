@@ -6,7 +6,7 @@
 <script setup>
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 div {
   width: 150px;
   height: 150px;

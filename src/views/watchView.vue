@@ -10,6 +10,9 @@ import {ref, reactive, watch, watchEffect, watchPostEffect} from "vue";
 
 let sum = ref(0)
 let msg = ref('你好啊')
+let mes = reactive({
+  say:'hello'
+})
 let person = reactive({
   name: '张三',
   age: 18,
@@ -17,7 +20,10 @@ let person = reactive({
     salary: '15k'
   },
 })
-
+watch(()=>mes.say, (newValue, oldValue) => {  // watch不能直接监听reactive对象的属性mes.say
+  console.log('新的值0', newValue);
+  console.log('旧的值0', oldValue);
+})
 watch(sum, (newValue, oldValue) => {
   console.log('新的值1', newValue);
   console.log('旧的值1', oldValue);
@@ -52,11 +58,16 @@ watchEffect(() => {
 watchPostEffect(()=>{
   console.log('DOM更新后执行')
 })
+watchEffect(() => {
+  //这里面你用到了谁就监视谁，里面就发生回调
+  console.log(person) // 不起作用
+})
 const changeMsg = () => {
-  sum.value = 1;
+  sum.value = 1
   person.age = 19
   person.name = '李四'
   person.job.salary = '20k'
+  mes.say = 'hello you'
 };
 </script>
 
