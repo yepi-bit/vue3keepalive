@@ -10,6 +10,8 @@
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/async">Async</RouterLink>
         <RouterLink to="/watch">Watch</RouterLink>
+        <RouterLink to="/useData">useData</RouterLink>
+        <RouterLink to="/useRefresh">useRefresh</RouterLink>
       </nav>
     </div>
   </header>

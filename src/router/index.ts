@@ -46,6 +46,26 @@ const router = createRouter({
         index: 3,
       },
       component: () => import('../views/watchView.vue')
+    },
+    {
+      path: '/useData',
+      name: 'useData',
+      meta: {
+        title: "钩子函数测试",
+        keepAlive: false,
+        index: 4,
+      },
+      component: () => import('../views/useDataView.vue')
+    },
+    {
+      path: '/useRefresh',
+      name: 'useRefresh',
+      meta: {
+        title: "下拉刷新测试",
+        keepAlive: false,
+        index: 5,
+      },
+      component: () => import('../views/useRefresh.vue')
     }
   ]
 })
