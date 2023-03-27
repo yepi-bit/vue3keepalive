@@ -2,8 +2,8 @@
   <div>
     <div>
       {{ aa }}--1
-      <p> {}--2</p>
     </div>
+    <p> {{ bb }}--2</p>
   </div>
 </template>
 
@@ -12,6 +12,7 @@ import {usePullRefresh} from '@/utils/usePullRefresh'
 import {onMounted, onUnmounted, ref} from "vue";
 
 const aa = ref(usePullRefresh())
+const bb = ref([])
 const getData = () => {
   let bb = aa.value.onLoad()
   return bb
