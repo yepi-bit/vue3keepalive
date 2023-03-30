@@ -66,6 +66,16 @@ const router = createRouter({
         index: 5,
       },
       component: () => import('../views/useRefresh.vue')
+    },
+    {
+      path: '/markdown',
+      name: 'markdown',
+      meta: {
+        title: "富文本",
+        keepAlive: false,
+        index: 6,
+      },
+      component: () => import('../views/markdown.vue')
     }
   ]
 })
