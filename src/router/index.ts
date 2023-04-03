@@ -76,6 +76,26 @@ const router = createRouter({
         index: 6,
       },
       component: () => import('../views/markdown.vue')
+    },
+    {
+      path: '/showView',
+      name: 'showView',
+      meta: {
+        title: "展开更多",
+        keepAlive: false,
+        index: 7,
+      },
+      component: () => import('../views/showView.vue')
+    },
+    {
+      path: '/slideView',
+      name: 'slideView',
+      meta: {
+        title: "滑动",
+        keepAlive: false,
+        index: 8,
+      },
+      component: () => import('../views/slideView.vue')
     }
   ]
 })

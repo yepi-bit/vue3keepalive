@@ -13,6 +13,8 @@
         <RouterLink to="/useData">useData</RouterLink>
         <RouterLink to="/useRefresh">useRefresh</RouterLink>
         <RouterLink to="/markdown">markdown</RouterLink>
+        <RouterLink to="/showView">showView</RouterLink>
+        <RouterLink to="/slideView">slideView</RouterLink>
       </nav>
     </div>
   </header>
