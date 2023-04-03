@@ -1,22 +1,31 @@
 <template>
-  <div>
+  <div style="height: 90vh">
     <v-md-editor v-model="text" :left-toolbar="leftToolbal" :disabled-menus="[]"  @change="change" height="500px" @upload-image="handleUploadImage"></v-md-editor>
+
+    <div class="container">
+      <json-editor v-model="code" :codeFather="code" @codeSon="changeCode"></json-editor>
+    </div>
   </div>
 </template>
 
 <script setup>
 import {ref} from 'vue'
+import JsonEditor from '../components/jsonEditor.vue'
 
-const text = ref('')
-const emit = defineEmits()
+const text = ref()
+const code = ref(null);
+
 const leftToolbal = ref('undo redo | emoji | image | h | strikethrough | hr| bold | italic | ul | ol | link | code | save | clear | table')
 // 富文本防抖
 const timeout = ref(null)
 const change = (markdownContent, htmlContent) => {
   clearTimeout(timeout.value);
   timeout.value = setTimeout(() => {
-    console.log(markdownContent, htmlContent)
+    code.value = markdownContent
   }, 300);
+}
+const changeCode = (i) => {
+  text.value = i
 }
 const handleUploadImage = (event, insertImage, files) => {
   console.log(event, insertImage, files)

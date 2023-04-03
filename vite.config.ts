@@ -1,6 +1,9 @@
 import {fileURLToPath, URL} from 'node:url'
 
 import {defineConfig} from 'vite'
+
+const prefix = `monaco-editor/esm/vs`;
+
 import prismjs from 'vite-plugin-prismjs';
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -18,6 +21,21 @@ export default defineConfig({
         //     rewrite: (path) => path.replace(/^\/api/, ''),
         //   },
         // },
+    },
+    // 编辑器打包配置 vite 打包是基于 rollup 实现的，这里可以利用 rollup 的手动分片选项，将 worker 相关的单独打包来解决这个问题
+    base: './',
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    jsonWorker: [`${prefix}/language/json/json.worker`],
+                    cssWorker: [`${prefix}/language/css/css.worker`],
+                    htmlWorker: [`${prefix}/language/html/html.worker`],
+                    tsWorker: [`${prefix}/language/typescript/ts.worker`],
+                    editorWorker: [`${prefix}/editor/editor.worker`],
+                },
+            },
+        },
     },
     plugins: [
         vue(),
