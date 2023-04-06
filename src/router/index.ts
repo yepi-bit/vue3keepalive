@@ -104,6 +104,8 @@ const router = createRouter({
 const whiteList: string[] = ["/login"]; // no redirect whitelist
 router.beforeEach((to, from, next) => {
   // const hasToken = getToken();
+  // @ts-ignore
+  document.title = to.meta.title + "--Yepi"
   const hasToken = true
   if (hasToken) {
     if (to.path === "/login") {
